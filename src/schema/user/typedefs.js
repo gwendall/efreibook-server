@@ -6,14 +6,16 @@ const typeDefs = /* GraphQL */ `
   }
 
   type Query {
-    me: CurrentUserInfo!
+    users: [User!]!
+    user(id: ID!): User
   }
 
   # ---
 
-  type CurrentUserInfo {
+  type User {
     id: ID!
-    name: String!
+    firstName: String!
+    lastName: String!
   }
 `
 

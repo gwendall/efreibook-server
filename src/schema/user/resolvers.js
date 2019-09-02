@@ -1,10 +1,12 @@
+import users from '~/data/users'
+
 const resolvers = {
   Query: {
-    me: async (obj, args, ctx, info) => {
-      return {
-        id: 123,
-        name: 'Hello world'
-      }
+    users: async (obj, args, ctx, info) => {
+      return users
+    },
+    user: async (obj, args, ctx, info) => {
+      return users.find((user) => user.id === args.id)
     },
   },
 }
