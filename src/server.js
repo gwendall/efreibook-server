@@ -3,6 +3,16 @@ import schema from './schema'
 
 const server = new GraphQLServer({
   schema,
+  /*
+  middlewares: {
+    Query: {
+      users: (resolve, parent, args, ctx, info) => {
+        console.log('Middleware.')
+        resolve()
+      }
+    }
+  }
+  */
 })
 
 const PORT = 4000;
