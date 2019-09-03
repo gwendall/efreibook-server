@@ -31,6 +31,11 @@ const resolvers = {
       const { token } = args;
       console.log('Got token.', token)
       return { success: true }
+    },
+    sendNotification: (obj, args, ctx, info) => {
+      const { token } = args;
+      console.log('Sending notification.', token)
+      return { success: true }
     }
   }
 }

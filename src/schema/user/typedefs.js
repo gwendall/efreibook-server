@@ -15,6 +15,7 @@ const typeDefs = /* GraphQL */ `
   type Mutation {
     editUser(id: ID!, data: EditUserInput!): User!
     storeUserExpoToken(token: String!): StoreUserExpoTokenResponse!
+    sendNotification(token: String!): StoreUserExpoTokenResponse!
   }
 
   # ---
