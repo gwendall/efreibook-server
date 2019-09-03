@@ -1,4 +1,6 @@
 import users from '~/data/users'
+import Expo from 'expo-server-sdk';
+let expo = new Expo();
 
 const resolvers = {
   Query: {
@@ -32,10 +34,27 @@ const resolvers = {
       console.log('Got token.', token)
       return { success: true }
     },
-    sendNotification: (obj, args, ctx, info) => {
+    sendNotification: async (obj, args, ctx, info) => {
       const { token } = args;
       console.log('Sending notification.', token)
-      return { success: true }
+      if (!Expo.isExpoPushToken(token)) throw Error('Not a valid Expo token.')
+      const message = {
+        to: token,
+        sound: 'default',
+        body: 'This is a test notification',
+        data: { conversationId: '1-upodjpiodjpiqwjdwqjd' },
+      }
+      let chunks = expo.chunkPushNotifications([message]);
+      let success = false
+      for (let chunk of chunks) {
+        try {
+          await expo.sendPushNotificationsAsync(chunk);
+          success = true
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      return { success }
     }
   }
 }
