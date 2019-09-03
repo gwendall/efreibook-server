@@ -26,6 +26,11 @@ const resolvers = {
         lastName: data.lastName || users[index].lastName,
       }
       return users.find((user) => user.id === args.id)
+    },
+    storeUserExpoToken: (obj, args, ctx, info) => {
+      const { token } = args;
+      console.log('Got token.', token)
+      return { success: true }
     }
   }
 }

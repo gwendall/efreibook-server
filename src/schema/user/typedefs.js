@@ -14,6 +14,7 @@ const typeDefs = /* GraphQL */ `
 
   type Mutation {
     editUser(id: ID!, data: EditUserInput!): User!
+    storeUserExpoToken(token: String!): StoreUserExpoTokenResponse!
   }
 
   # ---
@@ -28,7 +29,11 @@ const typeDefs = /* GraphQL */ `
     firstName: String
     lastName: String
   }
-  
+
+  type StoreUserExpoTokenResponse {
+    success: Boolean!
+  }
+
 `
 
 export default typeDefs
