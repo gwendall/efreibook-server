@@ -4,12 +4,14 @@ export default [
 	{
 		"id": "c0e32690-cd5f-11e9-a2da-2b0137052ed1",
 		"firstName": "Louis",
-		"lastName": "Adam"
+		"lastName": "Adam",
+		"postIds": [1, 2]
 	},
 	{
 		"id": "c0e34da0-cd5f-11e9-a2da-2b0137052ed1",
 		"firstName": "Benjamin",
-		"lastName": "Benoit"
+		"lastName": "Benoit",
+		"postIds": [3]
 	},
 	{
 		"id": "c0e34da1-cd5f-11e9-a2da-2b0137052ed1",

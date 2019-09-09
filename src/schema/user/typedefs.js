@@ -24,6 +24,13 @@ const typeDefs = /* GraphQL */ `
     id: ID!
     firstName: String!
     lastName: String!
+    postIds: [ID!]
+    posts: [Post]!
+  }
+
+  type Post {
+    id: ID!
+    title: String!
   }
 
   input EditUserInput {

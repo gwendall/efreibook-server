@@ -56,7 +56,27 @@ const resolvers = {
       }
       return { success }
     }
+  },
+  User: {
+    posts: async (obj, args, ctx, info) => {
+      return (obj.postIds || []).map(id => POSTS.find(post => post.id === id))
+    },
   }
 }
+
+const POSTS = [
+  {
+    id: 1,
+    title: 'Post 1'
+  },
+  {
+    id: 2,
+    title: 'Post 2'
+  },
+  {
+    id: 3,
+    title: 'Post 3'
+  },
+];
 
 export default resolvers
