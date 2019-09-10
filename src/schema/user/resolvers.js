@@ -1,5 +1,6 @@
 import users from '~/data/users'
 import Expo from 'expo-server-sdk';
+import posts from '~/data/posts';
 let expo = new Expo();
 
 const resolvers = {
@@ -59,24 +60,9 @@ const resolvers = {
   },
   User: {
     posts: async (obj, args, ctx, info) => {
-      return (obj.postIds || []).map(id => POSTS.find(post => post.id === id))
+      return (obj.postIds || []).map(id => posts.find(post => post.id === id))
     },
   }
 }
-
-const POSTS = [
-  {
-    id: 1,
-    title: 'Post 1'
-  },
-  {
-    id: 2,
-    title: 'Post 2'
-  },
-  {
-    id: 3,
-    title: 'Post 3'
-  },
-];
 
 export default resolvers

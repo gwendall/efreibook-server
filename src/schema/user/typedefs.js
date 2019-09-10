@@ -1,4 +1,5 @@
 // NOTE : User type imported from types folder
+import User from '~/types/User';
 
 const typeDefs = /* GraphQL */ `
   schema {
@@ -20,19 +21,6 @@ const typeDefs = /* GraphQL */ `
 
   # ---
 
-  type User {
-    id: ID!
-    firstName: String!
-    lastName: String!
-    postIds: [ID!]
-    posts: [Post]!
-  }
-
-  type Post {
-    id: ID!
-    title: String!
-  }
-
   input EditUserInput {
     firstName: String
     lastName: String
@@ -44,4 +32,4 @@ const typeDefs = /* GraphQL */ `
 
 `
 
-export default typeDefs
+export default () => [User, typeDefs]
